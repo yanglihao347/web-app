@@ -7,3 +7,9 @@
     float: left;
     margin-right:40px;
 }
+
+.logo:after{
+    content: '';
+    display: inline-block;
+    width: 100%;
+}
