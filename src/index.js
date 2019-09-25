@@ -14,7 +14,7 @@ class App extends React.Component {
             <Provider store={store} >
                 <BrowserRouter>
                     <Switch>
-                        <Route path='/login' component={Main}></Route>
+                        <Route path='/login' component={Login}></Route>
                         <Route component={Main}>
                           {/* <Route path="/inventory" component></Route> */}
                         </Route>
