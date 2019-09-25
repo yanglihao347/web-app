@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Layout, Menu, Breadcrumb, Icon } from 'antd';
+import { Link } from 'react-router-dom';
 import './index.scss';
 
 const { SubMenu } = Menu;
@@ -17,8 +18,12 @@ export default class Main extends Component {
                     defaultSelectedKeys={['inventory']}
                     style={{ lineHeight: '64px' }}
                 >
-                    <Menu.Item key="inventory">库存</Menu.Item>
-                    <Menu.Item key="order">订单</Menu.Item>
+                    <Menu.Item key="inventory">
+                      <Link to="/abc">库存</Link>
+                    </Menu.Item>
+                    <Menu.Item key="order">
+                      <Link to="/cde">订单</Link>
+                    </Menu.Item>
                 </Menu>
                 </Header>
                 <Layout>

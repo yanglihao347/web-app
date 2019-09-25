@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { HashRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
 import store from './redux/store'
@@ -12,12 +12,14 @@ class App extends React.Component {
     render (){
         return (
             <Provider store={store} >
-                <HashRouter>
+                <BrowserRouter>
                     <Switch>
-                        <Route path='/login' component={Login}></Route>
-                        <Route component={Main}></Route>
+                        <Route path='/login' component={Main}></Route>
+                        <Route component={Main}>
+                          {/* <Route path="/inventory" component></Route> */}
+                        </Route>
                     </Switch>
-                </HashRouter>
+                </BrowserRouter>
             </Provider>
         )
     }
