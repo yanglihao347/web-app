@@ -2,22 +2,37 @@ import React, { Component } from 'react';
 import { Layout, Menu, Breadcrumb, Icon, PageHeader } from 'antd';
 import { Route, Link } from 'react-router-dom';
 import CSGOkeys from '../csgokeys';
+import All from '../all';
+import Cases from '../cases';
+import Stickers from '../stickers';
+import Weapons from '../weapons';
 
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
 
 export default class Inventory extends Component {
+    // constructor(props) {
+    //   super(props);
+
+    //   this.state = {
+    //     state1: 'state1',
+    //   }
+    // }
+
+    componentDidMount() {
+      console.log(this.props);
+    }
     render () {
         return (
             <Layout>
                 <Sider width={200} style={{ background: '#fff' }}>
                     <Menu
                     mode="inline"
-                    defaultSelectedKeys={['1']}
+                    defaultSelectedKeys={['key']}
                     defaultOpenKeys={['other']}
                     style={{ height: '100%', borderRight: 0 }}
                     >
-                    <Menu.Item key="1">
+                    <Menu.Item key="key">
                         <Link to="/inventory/csgokeys" >
                             <span>
                                 <Icon type="user" />
@@ -39,9 +54,21 @@ export default class Inventory extends Component {
                              全部
                             </Link>
                         </Menu.Item>
-                        <Menu.Item key="3">option6</Menu.Item>
-                        <Menu.Item key="4">option7</Menu.Item>
-                        <Menu.Item key="5">option8</Menu.Item>
+                        <Menu.Item key="case">
+                            <Link to='/inventory/cases'>
+                             箱子/胶囊
+                            </Link>
+                        </Menu.Item>
+                        <Menu.Item key="sticker">
+                            <Link to='/inventory/stickers'>
+                             印花/贴纸
+                            </Link>
+                        </Menu.Item>
+                        <Menu.Item key="weapon">
+                            <Link to='/inventory/weapons'>
+                             武器/手套
+                            </Link>
+                        </Menu.Item>
                     </SubMenu>
                     </Menu>
                 </Sider>
@@ -55,6 +82,10 @@ export default class Inventory extends Component {
                     }}
                     >
                     <Route path="/inventory/csgokeys" component={CSGOkeys}></Route>
+                    <Route path="/inventory/all" component={All}></Route>
+                    <Route path="/inventory/cases" component={Cases}></Route>
+                    <Route path="/inventory/stickers" component={Stickers}></Route>
+                    <Route path="/inventory/weapons" component={Weapons}></Route>
                     </Content>
                 </Layout>
             </Layout>
