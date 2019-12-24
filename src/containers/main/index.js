@@ -5,6 +5,7 @@ import './index.scss';
 
 import Inventory from '../inventory';
 import Order from '../order';
+import Download from '../download';
 
 const { SubMenu } = Menu;
 const { Header, Content, Sider } = Layout;
@@ -27,10 +28,14 @@ export default class Main extends Component {
                     <Menu.Item key="order">
                       <Link to="/order">订单</Link>
                     </Menu.Item>
+                    <Menu.Item key="download">
+                      <Link to="/download">下载</Link>
+                    </Menu.Item>
                 </Menu>
                 </Header>
                 <Route path="/inventory" component={Inventory}></Route>
                 <Route path="/order" component={Order}></Route>
+                <Route path="/download" component={Download}></Route>
             </Layout>
         )
     }
