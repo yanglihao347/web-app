@@ -9,7 +9,29 @@ function yyy(state = 0, action) {
     return state;
 }
 
+const initUser = {
+  username: '',
+  _id: '',
+  type: '',
+  msg: ''
+}
+
+function user(state = initUser, action) {
+  const { user, msg } = action;
+  switch(action.type) {
+    case 'LOGIN_SUCCESS': 
+      return { ...state, ...user, msg };
+    case 'LOGIN_FAIL': 
+      return { ...state, msg };
+    case 'LOG_OUT':
+      return state;
+    default:
+      return state;
+  }
+}
+
 export default combineReducers({
     xxx,
-    yyy
+    yyy,
+    user
 })
