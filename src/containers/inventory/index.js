@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { Component } from 'react';
 import { Layout, Menu, Breadcrumb, Icon, PageHeader } from 'antd';
 import { Route, Link } from 'react-router-dom';

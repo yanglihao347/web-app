@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { Component } from 'react';
 import { PageHeader, Button, message } from 'antd';
 import md5 from 'blueimp-md5';
