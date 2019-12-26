@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <img
+    id="img1"
+    src="http://bbs.mf8-china.com/forum.php?mod=attachment&aid=MjUzNzk0fDdiYzkyMTVkfDE1NzcyNTYwMjd8MHwxMDUwMzk%3D&noupdate=yes"
+  />
+  <button id="btn1">随机切换</button>
+  <script>
+    let a = document.getElementById('img1');
+    let btn = document.getElementById('btn1');
+    let f2lList = [
+      'http://bbs.mf8-china.com/forum.php?mod=attachment&aid=MjUzNzk0fDdiYzkyMTVkfDE1NzcyNTYwMjd8MHwxMDUwMzk%3D&noupdate=yes',
+      'http://bbs.mf8-china.com/forum.php?mod=attachment&aid=MjUzNzk1fDI5NDc0OTRmfDE1NzcyNTYwMjd8MHwxMDUwMzk%3D&noupdate=yes',
+      'http://bbs.mf8-china.com/forum.php?mod=attachment&aid=MjUzNzk2fGY4NzkzYjhifDE1NzcyNTYwMjd8MHwxMDUwMzk%3D&noupdate=yes',
+      'http://bbs.mf8-china.com/forum.php?mod=attachment&aid=MjUzNzk3fGMyMWQ3ZGRkfDE1NzcyNTYwMjd8MHwxMDUwMzk%3D&noupdate=yes',
+      'http://bbs.mf8-china.com/forum.php?mod=attachment&aid=MjUzNzk4fGU4NjliYzczfDE1NzcyNTYwMjd8MHwxMDUwMzk%3D&noupdate=yes',
+      'http://bbs.mf8-china.com/forum.php?mod=attachment&aid=MjUzODA1fGZmMGYwNDMwfDE1NzcyNTYwMjd8MHwxMDUwMzk%3D&noupdate=yes',
+      'http://bbs.mf8-china.com/forum.php?mod=attachment&aid=MjUzODA2fDAzMWE0MmNlfDE1NzcyNTYwMjd8MHwxMDUwMzk%3D&noupdate=yes',
+      'http://bbs.mf8-china.com/forum.php?mod=attachment&aid=MjUzODA3fDdjMzBiMDE5fDE1NzcyNTYwMjd8MHwxMDUwMzk%3D&noupdate=yes',
+      'http://bbs.mf8-china.com/forum.php?mod=attachment&aid=MjUzODA4fGZjNzhjMTkzfDE1NzcyNTYwMjd8MHwxMDUwMzk%3D&noupdate=yes',
+      'http://bbs.mf8-china.com/forum.php?mod=attachment&aid=MjUzNzg0fDk4YWZlYzM3fDE1NzcyNTYwMjd8MHwxMDUwMzk%3D&noupdate=yes',
+      'http://bbs.mf8-china.com/forum.php?mod=attachment&aid=MjUzNzgyfGY3NTQ0ODBlfDE1NzcyNTYwMjd8MHwxMDUwMzk%3D&noupdate=yes',
+      'http://bbs.mf8-china.com/forum.php?mod=attachment&aid=MjUzNzgzfGFkNDBlNTFlfDE1NzcyNTYwMjd8MHwxMDUwMzk%3D&noupdate=yes',
+      'http://bbs.mf8-china.com/forum.php?mod=attachment&aid=MjUzNzg1fDM4Y2YzYzBhfDE1NzcyNTYwMjd8MHwxMDUwMzk%3D&noupdate=yes',
+      'http://bbs.mf8-china.com/forum.php?mod=attachment&aid=MjUzNzg2fDBjMjYzNDQyfDE1NzcyNTYwMjd8MHwxMDUwMzk%3D&noupdate=yes',
+      'http://bbs.mf8-china.com/forum.php?mod=attachment&aid=MjUzNzg3fDc3ZWEyNjI3fDE1NzcyNTYwMjd8MHwxMDUwMzk%3D&noupdate=yes'
+    ];
+    let l = f2lList.length;
+
+    let test = () => {
+      let rN = Math.floor(l * (Math.random()));
+      a.src = f2lList[rN];
+    }
+    btn.onclick = test;
+    window.onkeydown = test;
+    
+  </script>
+</body>
+</html>
