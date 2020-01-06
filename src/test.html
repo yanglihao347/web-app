@@ -5,41 +5,119 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <style>
+  </style>
 </head>
 <body>
   <img
-    id="img1"
+    id="img"
     src="http://bbs.mf8-china.com/forum.php?mod=attachment&aid=MjUzNzk0fDdiYzkyMTVkfDE1NzcyNTYwMjd8MHwxMDUwMzk%3D&noupdate=yes"
   />
-  <button id="btn1">随机切换</button>
+  <img src="http://json.image.alimmdn.com/vsou.png" />
+  <img src="https://test003-0106.oss-cn-hangzhou.aliyuncs.com/F2L_19.gif" />
+  <button id="rChange">随机切换</button>
+  <button id="showBtn">显示/隐藏 公式</button>
+  <div id="formula" style="display:none">公式</div>
   <script>
-    let a = document.getElementById('img1');
-    let btn = document.getElementById('btn1');
-    let f2lList = [
-      'http://bbs.mf8-china.com/forum.php?mod=attachment&aid=MjUzNzk0fDdiYzkyMTVkfDE1NzcyNTYwMjd8MHwxMDUwMzk%3D&noupdate=yes',
-      'http://bbs.mf8-china.com/forum.php?mod=attachment&aid=MjUzNzk1fDI5NDc0OTRmfDE1NzcyNTYwMjd8MHwxMDUwMzk%3D&noupdate=yes',
-      'http://bbs.mf8-china.com/forum.php?mod=attachment&aid=MjUzNzk2fGY4NzkzYjhifDE1NzcyNTYwMjd8MHwxMDUwMzk%3D&noupdate=yes',
-      'http://bbs.mf8-china.com/forum.php?mod=attachment&aid=MjUzNzk3fGMyMWQ3ZGRkfDE1NzcyNTYwMjd8MHwxMDUwMzk%3D&noupdate=yes',
-      'http://bbs.mf8-china.com/forum.php?mod=attachment&aid=MjUzNzk4fGU4NjliYzczfDE1NzcyNTYwMjd8MHwxMDUwMzk%3D&noupdate=yes',
-      'http://bbs.mf8-china.com/forum.php?mod=attachment&aid=MjUzODA1fGZmMGYwNDMwfDE1NzcyNTYwMjd8MHwxMDUwMzk%3D&noupdate=yes',
-      'http://bbs.mf8-china.com/forum.php?mod=attachment&aid=MjUzODA2fDAzMWE0MmNlfDE1NzcyNTYwMjd8MHwxMDUwMzk%3D&noupdate=yes',
-      'http://bbs.mf8-china.com/forum.php?mod=attachment&aid=MjUzODA3fDdjMzBiMDE5fDE1NzcyNTYwMjd8MHwxMDUwMzk%3D&noupdate=yes',
-      'http://bbs.mf8-china.com/forum.php?mod=attachment&aid=MjUzODA4fGZjNzhjMTkzfDE1NzcyNTYwMjd8MHwxMDUwMzk%3D&noupdate=yes',
-      'http://bbs.mf8-china.com/forum.php?mod=attachment&aid=MjUzNzg0fDk4YWZlYzM3fDE1NzcyNTYwMjd8MHwxMDUwMzk%3D&noupdate=yes',
-      'http://bbs.mf8-china.com/forum.php?mod=attachment&aid=MjUzNzgyfGY3NTQ0ODBlfDE1NzcyNTYwMjd8MHwxMDUwMzk%3D&noupdate=yes',
-      'http://bbs.mf8-china.com/forum.php?mod=attachment&aid=MjUzNzgzfGFkNDBlNTFlfDE1NzcyNTYwMjd8MHwxMDUwMzk%3D&noupdate=yes',
-      'http://bbs.mf8-china.com/forum.php?mod=attachment&aid=MjUzNzg1fDM4Y2YzYzBhfDE1NzcyNTYwMjd8MHwxMDUwMzk%3D&noupdate=yes',
-      'http://bbs.mf8-china.com/forum.php?mod=attachment&aid=MjUzNzg2fDBjMjYzNDQyfDE1NzcyNTYwMjd8MHwxMDUwMzk%3D&noupdate=yes',
-      'http://bbs.mf8-china.com/forum.php?mod=attachment&aid=MjUzNzg3fDc3ZWEyNjI3fDE1NzcyNTYwMjd8MHwxMDUwMzk%3D&noupdate=yes'
+    const f2lList = [
+      {
+        url: 'http://bbs.mf8-china.com/forum.php?mod=attachment&aid=MjUzNzk0fDdiYzkyMTVkfDE1NzcyNTYwMjd8MHwxMDUwMzk%3D&noupdate=yes',
+        formula: 'RU`R`U RU`2R`U RU`R`',
+        index: 1,
+      },
+      {
+        url: 'http://bbs.mf8-china.com/forum.php?mod=attachment&aid=MjUzNzk1fDI5NDc0OTRmfDE1NzcyNTYwMjd8MHwxMDUwMzk%3D&noupdate=yes',
+        formula: 'RUR`U` RU2R`U` RUR`',
+        index: 2,
+      },
+      {
+        url: 'http://bbs.mf8-china.com/forum.php?mod=attachment&aid=MjUzNzk2fGY4NzkzYjhifDE1NzcyNTYwMjd8MHwxMDUwMzk%3D&noupdate=yes',
+        formula: 'RU’R’F’L’U2LF',
+        index: 3,
+      },
+      {
+        url: 'http://bbs.mf8-china.com/forum.php?mod=attachment&aid=MjUzNzk3fGMyMWQ3ZGRkfDE1NzcyNTYwMjd8MHwxMDUwMzk%3D&noupdate=yes',
+        formula: 'RU’R’U’RU’R’UF’U’F',
+        index: 4,
+      },
+      {
+        url: 'http://bbs.mf8-china.com/forum.php?mod=attachment&aid=MjUzNzk4fGU4NjliYzczfDE1NzcyNTYwMjd8MHwxMDUwMzk%3D&noupdate=yes',
+        formula: '(RU2R’U)2 F’U’F',
+        index: 5,
+      },
+      {
+        url: 'http://bbs.mf8-china.com/forum.php?mod=attachment&aid=MjUzODA1fGZmMGYwNDMwfDE1NzcyNTYwMjd8MHwxMDUwMzk%3D&noupdate=yes',
+        formula: 'RUR’U’FR’F’R',
+        index: 6,
+      },
+      {
+        url: 'http://bbs.mf8-china.com/forum.php?mod=attachment&aid=MjUzODA2fDAzMWE0MmNlfDE1NzcyNTYwMjd8MHwxMDUwMzk%3D&noupdate=yes',
+        formula: 'RUR’U’RUR’',
+        index: 7,
+      },
+      {
+        url: 'http://bbs.mf8-china.com/forum.php?mod=attachment&aid=MjUzODA3fDdjMzBiMDE5fDE1NzcyNTYwMjd8MHwxMDUwMzk%3D&noupdate=yes',
+        formula: 'RU’R’URU’R’',
+        index: 8,
+      },
+      {
+        url: 'http://bbs.mf8-china.com/forum.php?mod=attachment&aid=MjUzODA4fGZjNzhjMTkzfDE1NzcyNTYwMjd8MHwxMDUwMzk%3D&noupdate=yes',
+        formula: '(R’FRF’)2',
+        index: 9,
+      },
+      {
+        url: 'http://bbs.mf8-china.com/forum.php?mod=attachment&aid=MjUzNzg0fDk4YWZlYzM3fDE1NzcyNTYwMjd8MHwxMDUwMzk%3D&noupdate=yes',
+        formula: 'U (F’ U’ F) U’ (R U R’)',
+        index: 10,
+      },
+      {
+        url: 'http://bbs.mf8-china.com/forum.php?mod=attachment&aid=MjUzNzgyfGY3NTQ0ODBlfDE1NzcyNTYwMjd8MHwxMDUwMzk%3D&noupdate=yes',
+        formula: 'U’RU2R’URUR’',
+        index: 11,
+      },
+      {
+        url: 'http://bbs.mf8-china.com/forum.php?mod=attachment&aid=MjUzNzgzfGFkNDBlNTFlfDE1NzcyNTYwMjd8MHwxMDUwMzk%3D&noupdate=yes',
+        formula: 'U’RU’R’U’RU2R’',
+        index: 12,
+      },
+      {
+        url: 'http://bbs.mf8-china.com/forum.php?mod=attachment&aid=MjUzNzg1fDM4Y2YzYzBhfDE1NzcyNTYwMjd8MHwxMDUwMzk%3D&noupdate=yes',
+        formula: 'U’RUR’UF’U’F',
+        index: 13,
+      },
+      {
+        url: 'http://bbs.mf8-china.com/forum.php?mod=attachment&aid=MjUzNzg2fDBjMjYzNDQyfDE1NzcyNTYwMjd8MHwxMDUwMzk%3D&noupdate=yes',
+        formula: '(RUR’U’)2RUR’',
+        index: 14,
+      },
+      {
+        url: 'http://bbs.mf8-china.com/forum.php?mod=attachment&aid=MjUzNzg3fDc3ZWEyNjI3fDE1NzcyNTYwMjd8MHwxMDUwMzk%3D&noupdate=yes',
+        formula: 'RU’(R’y’)R’U2R',
+        index: 15,
+      },
     ];
-    let l = f2lList.length;
+    const img = document.getElementById('img');
+    const rChange = document.getElementById('rChange');
+    const showBtn = document.getElementById('showBtn');
+    const formula = document.getElementById('formula');
 
-    let test = () => {
-      let rN = Math.floor(l * (Math.random()));
-      a.src = f2lList[rN];
+    let flag = false;
+    let l = f2lList.length;
+    let rN = 0;
+
+    let change = () => {
+      rN = Math.floor(l * (Math.random()));
+      img.src = f2lList[rN]['url'];
+      formula.innerHTML = f2lList[rN]['formula'];
     }
-    btn.onclick = test;
-    window.onkeydown = test;
+    let toggleShow = () => {
+      flag = !flag;
+      formula.innerHTML = f2lList[rN]['formula'];
+      flag ? formula.style.display = 'block' : formula.style.display = 'none';
+    }
+    rChange.onclick = change;
+    showBtn.onclick = toggleShow;
+    window.onkeydown = change;
     
   </script>
 </body>
